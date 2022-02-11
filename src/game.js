@@ -47,7 +47,7 @@ class Game {
                 throw new Error(`Word not in dictionary: '${options.word}'`)
             }
         }
-        this.word = (options.word || dictionary.selectRandomWord()).toUpperCase()
+        this.word = (options.possibleAnswers.selectRandomWord() || options.word || dictionary.selectRandomWord()).toUpperCase()
         this.finished = false
         this.won = false
         this.currentGuess = 0

@@ -8,10 +8,6 @@ const {Dictionary} = require("./dictionary")
 let dictionaries;
 let defaultDictionary;
 
-const gameOptions = {
-    totalAttempts: Number(process.env.TOTAL_ATTEMPTS) || 7
-};
-
 const gamesById = new Map();
 
 fastify.register(fastifyStatic, {
@@ -19,6 +15,10 @@ fastify.register(fastifyStatic, {
 })
 
 fastify.post("/game/start", (req, res) => {
+    const gameOptions = {
+        totalAttempts: Number(process.env.TOTAL_ATTEMPTS) || 6,
+        possibleAnswers: dictionaries.get("hbtuas-5")
+    };
     const {dictName} = req.body
     const dictionary = dictionaries.get(dictName) || defaultDictionary;
     const game = new Game(dictionary, gameOptions)
