@@ -1,5 +1,7 @@
 {
+    "homepage": "https://mayl30.github.io/swordle", 
     "scripts": {
+        "deploy": "gh-pages -d build",
         "start": "node src/server.js",
         "test": "jest",
         "test:watch": "jest --watch"
@@ -10,10 +12,11 @@
         "fastify-static": "^4.5.0"
     },
     "devDependencies": {
+        "gh-pages": "^3.2.3",
         "jest": "^27.4.7"
     },
     "engines": {
-      "node": "16"
+        "node": "16"
     },
     "license": "MIT"
 }
